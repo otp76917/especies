@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "nombre": "Dodo",
+    "periodo": "Siglo XVII",
+    "habitat": "Isla Mauricio",
+    "causas": ["Caza", "Introducción de especies invasoras"],
+    "imagen": "dodo.jpg",
+    "tipo_animal": "Ave"
+  },
+  {
+    "id": 2,
+    "nombre": "Tigre de Tasmania",
+    "periodo": "Siglo XX",
+    "habitat": "Australia, Tasmania",
+    "causas": ["Caza", "Pérdida de hábitat"],
+    "imagen": "tigre_tasmania.jpg",
+    "tipo_animal": "Mamífero"
+  },
+  {
+    "id": 3,
+    "nombre": "Quagga",
+    "periodo": "Siglo XIX",
+    "habitat": "Sudáfrica",
+    "causas": ["Caza"],
+    "imagen": "quagga.jpg",
+    "tipo_animal": "Mamífero"
+  },
+  {
+    "id": 4,
+    "nombre": "Paloma Migratoria",
+    "periodo": "Siglo XX",
+    "habitat": "América del Norte",
+    "causas": ["Caza"],
+    "imagen": "paloma_migratoria.jpg",
+    "tipo_animal": "Ave"
+  },
+  {
+    "id": 5,
+    "nombre": "Moa",
+    "periodo": "Siglo XV",
+    "habitat": "Nueva Zelanda",
+    "causas": ["Caza", "Pérdida de hábitat"],
+    "imagen": "moa.jpg",
+    "tipo_animal": "Ave"
+  },
+  {
+    "id": 6,
+    "nombre": "Aurochs",
+    "periodo": "Siglo XVII",
+    "habitat": "Europa, Asia, Norte de África",
+    "causas": ["Caza", "Pérdida de hábitat"],
+    "imagen": "aurochs.jpg",
+    "tipo_animal": "Mamífero"
+  },
+  {
+    "id": 7,
+    "nombre": "Tilacino",
+    "periodo": "Siglo XX",
+    "habitat": "Australia, Tasmania",
+    "causas": ["Caza", "Pérdida de hábitat"],
+    "imagen": "tilacino.jpg",
+    "tipo_animal": "Mamífero"
+  },
+  {
+    "id": 8,
+    "nombre": "Gran Alca",
+    "periodo": "Siglo XIX",
+    "habitat": "Atlántico Norte",
+    "causas": ["Caza"],
+    "imagen": "gran_alca.jpg",
+    "tipo_animal": "Ave"
+  },
+  {
+    "id": 9,
+    "nombre": "Mamut Lanudo",
+    "periodo": "Hace 4000 años",
+    "habitat": "Siberia",
+    "causas": ["Cambio climático", "Caza"],
+    "imagen": "mamut_lanudo.jpg",
+    "tipo_animal": "Mamífero"
+  },
+  {
+    "id": 10,
+    "nombre": "Smilodon",
+    "periodo": "Hace 10000 años",
+    "habitat": "America",
+    "causas": ["Cambio climático", "Competencia"],
+    "imagen": "Smilodon.jpg",
+    "tipo_animal": "Mamífero"
+  },
+  {
+    "id": 11,
+    "nombre": "Pájaro Carpintero Pico de Marfil",
+    "periodo": "Siglo XX",
+    "habitat": "Estados Unidos, Cuba",
+    "causas": ["Pérdida de hábitat", "Caza"],
+    "imagen": "pajaro_pico_marfil.jpg",
+    "tipo_animal": "Ave"
+  },
+  {
+    "id": 12,
+    "nombre": "Baiji",
+    "periodo": "Siglo XXI",
+    "habitat": "Río Yangtsé, China",
+    "causas": ["Contaminación", "Navegación", "Pesca"],
+    "imagen": "baiji.jpg",
+    "tipo_animal": "Mamífero"
+  }
+]

@@ -1,4 +1,4 @@
-import React, {useContext} from "react"
+import React, { useContext } from "react"
 import { Card, Button } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import { EspeciesContext } from './EspeciesProvider'
@@ -10,10 +10,10 @@ const EspecieCard = ({ especie }) => {
     const handleEliminar = () => {
         removeEspecie(especie.id);
     };
-    
+
     return (
         <Card style={{ width: '100%' }} className="h-100">
-            <Card.Img variant="top" src={imageUrl} alt={especie.nombre}  />
+            <Card.Img variant="top" src={imageUrl} alt={especie.nombre} />
             <Card.Body>
                 <Card.Title>{especie.nombre}</Card.Title>
                 <Card.Text>

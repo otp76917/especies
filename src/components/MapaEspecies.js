@@ -1,73 +1,60 @@
-// src/components/MapaEspecies.js
 import React, { useContext } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { EspeciesContext } from './EspeciesProvider'
-import { Icon } from 'leaflet'; // Para iconos personalizados si se desea
-import { Link } from 'react-router-dom'; // Para enlazar a detalles
+import { Icon } from 'leaflet'
+import { Link } from 'react-router-dom'
 
-// Un pequeño mapeo de hábitats conocidos a coordenadas.
-// En una app real, esto vendría de tu API, tus datos JSON, o un servicio de geocodificación.
 const habitatCoords = {
   "Isla Mauricio": { lat: -20.3484, lng: 57.5522 },
-  "Australia, Tasmania": [{ lat: -25.2744, lng: 133.7751 }, { lat: -41.4545, lng: 145.9707 }], // Australia y Tasmania
+  "Australia, Tasmania": [{ lat: -25.2744, lng: 133.7751 }, { lat: -41.4545, lng: 145.9707 }],
   "Tasmania": { lat: -41.4545, lng: 145.9707 },
   "Australia": { lat: -25.2744, lng: 133.7751 },
-  "Sudáfrica": { lat: -30.5595, lng: 22.9375 }, // Coordenada más central para Sudáfrica
-  "América del Norte": { lat: 45.0000, lng: -100.0000 }, // Punto central aproximado
+  "Sudáfrica": { lat: -30.5595, lng: 22.9375 },
+  "América del Norte": { lat: 45.0000, lng: -100.0000 }, 
   "Nueva Zelanda": { lat: -40.9006, lng: 174.8860 },
-  "Europa": { lat: 54.5260, lng: 15.2551 }, // Punto central aproximado de Europa
-  "Asia": { lat: 34.0479, lng: 100.6197 }, // Punto central aproximado de Asia
-  "Norte de África": { lat: 25.0000, lng: 15.0000 }, // Punto central aproximado
-  "Atlántico Norte": { lat: 50.0000, lng: -30.0000 }, // Muy general
-  "Siberia": { lat: 60.0000, lng: 100.0000 }, // Muy general
-  "America": [{ lat: 39.8283, lng: -98.5795 }, { lat: -14.2350, lng: -51.9253 }], // EEUU y Brasil como refs para N y S America
+  "Europa": { lat: 54.5260, lng: 15.2551 },
+  "Asia": { lat: 34.0479, lng: 100.6197 },
+  "Norte de África": { lat: 25.0000, lng: 15.0000 },
+  "Atlántico Norte": { lat: 50.0000, lng: -30.0000 },
+  "Siberia": { lat: 60.0000, lng: 100.0000 },
+  "America": [{ lat: 39.8283, lng: -98.5795 }, { lat: -14.2350, lng: -51.9253 }],
   "Estados Unidos": { lat: 39.8283, lng: -98.5795 },
   "Cuba": { lat: 21.5218, lng: -77.7812 },
-  "Río Yangtsé, China": { lat: 30.5928, lng: 114.3055 }, // Wuhan
+  "Río Yangtsé, China": { lat: 30.5928, lng: 114.3055 },
   "China": { lat: 35.8617, lng: 104.1954 }
-};
-
-// Icono personalizado para los marcadores (opcional)
-// const customIcon = new Icon({
-//   iconUrl: '/path/to/your/marker-icon.png',
-//   iconSize: [38, 38] // tamaño del icono
-// });
+}
 
 const MapaEspecies = () => {
-  const { especies, loading } = useContext(EspeciesContext);
+  const { especies, loading } = useContext(EspeciesContext)
 
-  if (loading) return <p>Cargando datos de especies...</p>;
+  if (loading) return <p>Cargando datos de especies...</p>
 
-  // Función para obtener coordenadas para una especie.
-  // Esto es una simplificación. Podría ser mucho más complejo.
   const getCoordenadasParaEspecie = (especie) => {
-    const ubicaciones = [];
-    const habitatsEspecie = especie.habitat.split(',').map(h => h.trim());
+    const ubicaciones = []
+    const habitatsEspecie = especie.habitat.split(',').map(h => h.trim())
 
     habitatsEspecie.forEach(h => {
       if (habitatCoords[h]) {
-        const coords = habitatCoords[h];
-        if (Array.isArray(coords)) { // Si un hábitat tiene múltiples coordenadas (ej: "Australia, Tasmania")
-          ubicaciones.push(...coords);
+        const coords = habitatCoords[h]
+        if (Array.isArray(coords)) {
+          ubicaciones.push(...coords)
         } else {
-          ubicaciones.push(coords);
+          ubicaciones.push(coords)
         }
       }
-    });
-    // Si un hábitat compuesto como "Europa, Asia" no tiene entrada directa pero sí sus partes:
+    })
     if (ubicaciones.length === 0 && especie.habitat.includes(',')) {
-        // Intenta con el string completo si no se encontraron partes individuales.
-        if (habitatCoords[especie.habitat]) {
-            const coords = habitatCoords[especie.habitat];
-             if (Array.isArray(coords)) {
-                ubicaciones.push(...coords);
-            } else {
-                ubicaciones.push(coords);
-            }
+      if (habitatCoords[especie.habitat]) {
+        const coords = habitatCoords[especie.habitat]
+        if (Array.isArray(coords)) {
+          ubicaciones.push(...coords)
+        } else {
+          ubicaciones.push(coords)
         }
+      }
     }
-    return ubicaciones;
-  };
+    return ubicaciones
+  }
 
   return (
     <MapContainer center={[20, 0]} zoom={2} style={{ height: '100%', width: '100%' }}>
@@ -81,7 +68,6 @@ const MapaEspecies = () => {
           <Marker
             key={`${especie.id}-${index}`}
             position={[coord.lat, coord.lng]}
-            // icon={customIcon} // Descomenta para usar un icono personalizado
           >
             <Popup>
               <h5>{especie.nombre}</h5>
@@ -90,7 +76,7 @@ const MapaEspecies = () => {
               <Link to={`/especie/${especie.id}`}>Ver más detalles</Link>
             </Popup>
           </Marker>
-        ));
+        ))
       })}
     </MapContainer>
   )

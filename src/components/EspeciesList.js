@@ -63,10 +63,10 @@ const EspeciesList = () => {
 
     if (loading) {
         return (
-      <Spinner animation="border" variant="primary" role="status">
-        <span className="visually-hidden">Cargando...</span>
-      </Spinner>
-    )
+            <Spinner animation="border" variant="primary" role="status">
+                <span className="visually-hidden">Cargando...</span>
+            </Spinner>
+        )
     }
 
     if (error) {

@@ -29,12 +29,12 @@ const FormularioEspecie = () => {
     const causasArray = causas.split(',').map(causa => causa.trim()).filter(causa => causa !== "")
 
     if (causasArray.length === 0 && causas.trim() !== "") {
-        setError('Formato de causas inválido. Separa las causas por comas.')
-        return
+      setError('Formato de causas inválido. Separa las causas por comas.')
+      return
     }
-     if (causasArray.length === 0 && causas.trim() === "") {
-        setError('El campo causas es obligatorio.')
-        return
+    if (causasArray.length === 0 && causas.trim() === "") {
+      setError('El campo causas es obligatorio.')
+      return
     }
 
 

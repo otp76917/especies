@@ -26,7 +26,7 @@ describe('parsearPeriodo', () => {
   test('debe parsear "Hace 10000 años" correctamente', () => {
     expect(parsearPeriodo("Hace 10000 años")).toBe(AÑO_ACTUAL - 10000)
   })
-  
+
   test('debe manejar diferentes capitalizaciones para "siglo"', () => {
     expect(parsearPeriodo("siglo xvii")).toBe(1600)
     expect(parsearPeriodo("SIGLO XVII")).toBe(1600)

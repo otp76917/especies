@@ -29,7 +29,7 @@ const EspeciePage = () => {
               src={imageUrl}
               alt={especieSeleccionada.nombre}
               fluid
-              
+
               onError={(e) => {
                 e.target.onerror = null
                 e.target.src = "/imagenes/placeholder.png"

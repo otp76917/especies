@@ -3,7 +3,6 @@ try {
   console.log('Jest SÍ puede resolver react-router-dom, ruta:', rrdInfo);
 } catch (e) {
   console.error('Jest NO puede resolver react-router-dom directamente:', e.message);
-  // No relances el error aquí para que el resto del test intente ejecutarse y veamos el error original de jest.mock
 }
 
 
@@ -15,18 +14,15 @@ import '@testing-library/jest-dom'
 import FormularioEspecie from './FormularioEspecie'
 import { EspeciesContext } from './EspeciesProvider'
 
-const mockNavigate = jest.fn();
+const mockNavigate = jest.fn()
 
-// Mock simplificado para diagnóstico:
 jest.mock('react-router-dom', () => {
-  console.log('Aplicando mock SIMPLIFICADO de react-router-dom'); // Para ver si se ejecuta
+  console.log('Aplicando mock SIMPLIFICADO de react-router-dom')
   return {
     useNavigate: () => mockNavigate,
-    Link: ({ to, children }) => <a href={to}>{children}</a>, // Mock básico para Link si es necesario
-    // Añade otros exports de react-router-dom que FormularioEspecie pueda usar,
-    // aunque FormularioEspecie en sí solo usa useNavigate.
-  };
-});
+    Link: ({ to, children }) => <a href={to}>{children}</a>,
+  }
+})
 
 describe('FormularioEspecie', () => {
   let mockAddEspecie
@@ -97,7 +93,7 @@ describe('FormularioEspecie', () => {
 
   test('formatea correctamente las causas (con espacios y comas extra)', () => {
     renderWithContext(<FormularioEspecie />)
-    
+
     fireEvent.change(screen.getByLabelText(/Nombre de la Especie/i), { target: { value: 'Test Especie' } })
     fireEvent.change(screen.getByLabelText(/Tipo de Animal/i), { target: { value: 'Test Tipo' } })
     fireEvent.change(screen.getByLabelText(/Período de Extinción/i), { target: { value: 'Test Período' } })
@@ -114,7 +110,7 @@ describe('FormularioEspecie', () => {
     )
   })
 
-   test('muestra error si el campo causas está vacío pero es requerido', () => {
+  test('muestra error si el campo causas está vacío pero es requerido', () => {
     renderWithContext(<FormularioEspecie />)
 
     fireEvent.change(screen.getByLabelText(/Nombre de la Especie/i), { target: { value: 'Test Especie' } })

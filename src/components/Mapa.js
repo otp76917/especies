@@ -6,8 +6,8 @@ const Mapa = () => {
     <div className="mapa-container">
       <h1>Mapa de Especies</h1>
       <div style={{ height: '70vh', width: '100%' }}>
-  <MapaEspecies />
-</div>
+        <MapaEspecies />
+      </div>
     </div>
   )
 }

@@ -13,7 +13,7 @@ const EspecieCard = ({ especie }) => {
     
     return (
         <Card style={{ width: '100%' }} className="h-100">
-            <Card.Img variant="top" src={imageUrl} alt={especie.nombre} height="100px" width="100px" />
+            <Card.Img variant="top" src={imageUrl} alt={especie.nombre}  />
             <Card.Body>
                 <Card.Title>{especie.nombre}</Card.Title>
                 <Card.Text>
